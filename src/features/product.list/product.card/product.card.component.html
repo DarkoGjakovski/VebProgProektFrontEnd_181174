@@ -1,0 +1,12 @@
+<div class="card">
+    <img class="card-img-top" [src]="product?.image" alt="Card image cap">
+    <div class="flexbox">
+      <div class="card-body">
+        <h3 class="card-title">{{product?.title}}</h3>
+        <p class="card-text">{{product?.price}}ден.</p>
+      </div>
+      <div class="card-buttons">
+          <mat-icon (click)="addToCart()"  [ngStyle]="{'color':'rgb(74 59 178)'}">add_shopping_cart</mat-icon>
+      </div>
+    </div>
+</div>

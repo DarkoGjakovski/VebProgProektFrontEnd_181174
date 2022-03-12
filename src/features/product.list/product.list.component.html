@@ -1,0 +1,23 @@
+<div class="wrapper">
+    
+    <div class="row">
+
+        <div class="col-lg-2">
+            <app-filtercard></app-filtercard>
+        </div>
+
+        <div class="col-lg-10">
+
+            <div class="grid">  
+                <app-productCard *ngFor="let product of products" [product]="product"></app-productCard >
+            </div>  
+            
+        </div>
+
+    </div>
+
+
+</div>
+  
+
+<app-footer></app-footer>

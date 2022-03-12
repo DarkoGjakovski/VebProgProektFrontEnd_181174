@@ -1,0 +1,106 @@
+.shortcut-card {
+  display: flex;
+  height: 100%;
+  position: relative;
+  flex-direction: column;
+  padding: 20px;
+  padding-bottom: 10px;
+  background-color: white;
+  border-radius: 0.35rem;
+  box-shadow: 0 1px 15px 1px #3e396b12;
+  margin:10px;
+  cursor: pointer;
+  transition: transform 0.1s;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.flexbox{
+  display: flex;
+  flex-direction: row;
+}
+
+.card-title{
+  color: #444444;
+}
+
+.card{
+  margin: 10px;
+  margin-top: 0px;
+  background-color: white;
+  border-radius: 0.35rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.card-buttons{
+  display: flex;
+  align-items: center;
+}
+
+mat-icon{
+  font-size: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+mat-icon:hover{
+  transform: scale(1.1);
+}
+
+.card-img-top{
+  border-bottom: 1px solid rgb(74 59 178);
+}
+
+.shortcut-card:hover {
+  transform: scale(1.01);
+}
+
+.profile-sidebar{
+  display: flex;
+  justify-content: center;
+}
+
+.profile-main{
+  text-align: center;
+  width: 100%;
+}
+
+.profile-body{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  /* autoprefixer: off */
+  font-size: 14px;
+}
+
+@media (max-width: 750px) {
+  .client-card{
+    height: 100%;
+  }
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+}
+
+.profile-name {
+  font-size: 1em;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 1000px) {
+  .client-card {
+    flex-direction: column;
+  }
+}
+
+.profile-country{
+  color: #6b6f82 !important;
+}
+
+

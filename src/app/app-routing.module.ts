@@ -1,7 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from 'src/features/home.page/home.page.component';
+import { ProductListComponent } from 'src/features/product.list/product.list.component';
+import { ShoppingcartComponent } from 'src/features/shoppingcart/shoppingcart.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home', component: HomePageComponent
+  },
+  {
+    path: 'products', component: ProductListComponent
+  },
+  {
+    path: 'shoppingcart', component: ShoppingcartComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
