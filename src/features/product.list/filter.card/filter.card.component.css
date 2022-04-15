@@ -2,28 +2,39 @@
     width: 100%;
     margin-right: 10px;
     background-color: white;
-    border-radius: 0.35rem;
+    /* border-radius: 0.35rem; */
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
 .btn-primary{
-    background-color: rgb(74 59 178);
+    background-color: rgb(107 84 168);
     border: none;
-    margin-top: 20px;
+    /* margin-top: 10px; */
 }
 
-.card-title{
-    color: rgb(74 59 178);
-}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white;
+ }
 
-.text-muted{
-    color: rgb(70, 70, 70);
-}
-
-mat-slider {
+::ng-deep .mat-select-panel{
+    color: rgb(107 84 168)!important;
     width: 100%;
 }
 
-mat-checkbox{
-    color: rgb(74 59 178);
+::ng-deep .mat-select-panel .mat-option-text {
+    color: rgb(107 84 168)!important;
+}
+
+.matRole .mat-option-text {
+    height: 4em !important;
+  }
+
+.card-title{
+    color: rgb(107 84 168);
+    margin-bottom: 20px;
+}
+
+.text-muted{
+    font-size: medium;
+    color: rgb(70, 70, 70);
 }

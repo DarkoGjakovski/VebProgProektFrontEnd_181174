@@ -1,5 +1,5 @@
 <div class="toolbar" role="banner">
-  <div class="minitoolbar"></div>
+  <!-- <div class="minitoolbar"></div> -->
   <img
     width="200"
     alt="Angular Logo"
@@ -11,17 +11,22 @@
     
     <span class="menu-spacer"></span>
     <div routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="links">
-      <a class="nav-link" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" [queryParams]="{c: 'flowers'}"> ЦВЕЌИЊА <div class ="ac-brdr"></div></a>
-      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'bouquets'}"> БУКЕТИ </a>
-      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'ikebana'}"> ИКЕБАНИ </a>
-      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'decorations'}"> ДЕКОРАЦИЈА ЗА СВАДБИ </a>
+      <div class="flex-container"><a class="nav-link" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}"> ЦВЕЌИЊА <div class ="ac-brdr"></div></a></div>
+      <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+      <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'букети'}"> БУКЕТИ </a></div>
+      <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+      <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'икебани'}"> ИКЕБАНИ </a></div>
+      <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+      <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'декорации'}"> ДЕКОРАЦИЈА ЗА СВАДБИ </a></div>
     </div>
 
     <app-searchbox></app-searchbox>
 
     <div class="buttons">
-      <mat-icon [routerLink]="'/shoppingcart'"  [ngStyle]="{'color':'rgb(74 59 178)'}">shopping_cart</mat-icon>
+      <mat-icon [routerLink]="'/shoppingcart'"  [ngStyle]="{'color':'rgb(107 84 168)'}">shopping_cart</mat-icon>
       <p class="cartNumber">0</p>
+      <mat-divider vertical style="margin-top: 10px;padding: 10px;height: 10px;"></mat-divider>
+      <mat-icon class="material-icons-outlined" style="padding-left: 10px;" [routerLink]="'/favorites'"  [ngStyle]="{'color':'rgb(107 84 168)'}">favorites</mat-icon>
       <!-- <mat-icon  [ngStyle]="{'color':'rgb(168 37 139)'}">facebook</mat-icon> -->
     </div>
       

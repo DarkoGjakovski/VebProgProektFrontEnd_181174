@@ -1,3 +1,8 @@
+<!-- <section class="section-pagetop bg">
+    <div class="container">
+        <h2 class="title-page">{{bannerTitle.value}}</h2>
+    </div> 
+</section> -->
 <div class="wrapper">
     
     <div class="row">
@@ -9,14 +14,24 @@
         <div class="col-lg-10">
 
             <div class="grid">  
-                <app-productCard *ngFor="let product of products" [product]="product"></app-productCard >
+                <app-productCard *ngFor="let product of slicedList() | async" [product]="product"></app-productCard >
             </div>  
             
         </div>
 
     </div>
 
+     <div class="paginator">
 
+        <nav aria-label="...">
+            <ul class="pagination justify-content-end">
+                <li *ngFor='let in of counter(numberOfPages) ;let i = index'>
+                    <a class="page-link" (click)="changePage(i+1)" >{{i+1}}</a>
+                </li>
+            </ul>  
+          </nav>
+
+    </div>
 </div>
   
 

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterCardComponent implements OnInit {
 
+  rangeunder500: boolean = false;
+  color: string = 'primary';
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  updateAllComplete(){}
 
 }

@@ -1,4 +1,5 @@
 <div class="card">
+  <mat-icon class="heart" style="padding-left: 10px;" [routerLink]="'/favorites'"  [ngStyle]="{'color':'rgb(107 84 168)'}">favorites</mat-icon>
     <img class="card-img-top" [src]="product?.image" alt="Card image cap">
     <div class="flexbox">
       <div class="card-body">
@@ -6,7 +7,7 @@
         <p class="card-text">{{product?.price}}ден.</p>
       </div>
       <div class="card-buttons">
-          <mat-icon (click)="addToCart()"  [ngStyle]="{'color':'rgb(74 59 178)'}">add_shopping_cart</mat-icon>
+          <mat-icon class="cart" (click)="addToCart()"  [ngStyle]="{'color':'rgb(107 84 168)'}">add_shopping_cart</mat-icon>
       </div>
     </div>
 </div>

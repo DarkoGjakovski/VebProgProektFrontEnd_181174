@@ -18,6 +18,8 @@ import { ShoppingcartComponent } from 'src/features/shoppingcart/shoppingcart.co
 import {MatSelectModule} from '@angular/material/select';
 import { ProductService } from 'src/services/product.service';
 import { ShoppingCartService } from 'src/services/shoppingCart.service';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -26,19 +28,21 @@ import { ShoppingCartService } from 'src/services/shoppingCart.service';
     ProductListComponent,
     HomePageComponent,
     FilterCardComponent,
+    ShoppingcartComponent,
     productCardComponent,
-    FooterComponent,
-    ShoppingcartComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     MatDividerModule,
     MatIconModule,
     MatSliderModule,
     MatCheckboxModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [ProductService, ShoppingCartService],
   bootstrap: [AppComponent]

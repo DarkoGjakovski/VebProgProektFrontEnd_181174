@@ -6,7 +6,7 @@
   padding: 20px;
   padding-bottom: 10px;
   background-color: white;
-  border-radius: 0.35rem;
+  // border-radius: 0.35rem;
   box-shadow: 0 1px 15px 1px #3e396b12;
   margin:10px;
   cursor: pointer;
@@ -27,7 +27,7 @@
   margin: 10px;
   margin-top: 0px;
   background-color: white;
-  border-radius: 0.35rem;
+  // border-radius: 0.35rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
@@ -40,15 +40,32 @@ mat-icon{
   font-size: 30px;
   margin-right: 20px;
   cursor: pointer;
+}
+
+.cart{
   transition: transform 0.1s;
 }
 
-mat-icon:hover{
+.cart:hover{
   transform: scale(1.1);
 }
 
-.card-img-top{
-  border-bottom: 1px solid rgb(74 59 178);
+// .card-img-top{
+//   border-bottom: 1px solid rgb(74 59 178);
+// }
+
+.card .heart{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card:hover .heart{
+  opacity: 1;
+  visibility: visible;
 }
 
 .shortcut-card:hover {

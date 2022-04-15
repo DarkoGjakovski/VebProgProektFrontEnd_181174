@@ -1,63 +1,6 @@
-
-<div class="cart-page">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="cart-page-inner">
-                    <div class="table-responsive">
-                        <table style="overflow-x:auto;" class="table table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Remove</th>
-                                </tr>
-                            </thead>
-                            <tbody class="align-middle">
-
-                                <tr *ngFor="let product of shoppingCartProducts">
-                                    <td>
-                                        <div class="img">
-                                            <a href="#"><img [src]="product.image" alt="Image"></a>
-                                            <p>{{product.title}}</p>
-                                        </div>
-                                    </td>
-                                    <td>{{product.price}}</td>
-                                    <td>
-                                        <mat-form-field appearance="legacy">
-                                        <mat-label>{{selected}}</mat-label>
-                                        <mat-select [(value)]="selected" matNativeControl>
-                                            <mat-option [value]="index" *ngFor="let index of [1,2,3,4,5,6,7,8,9,10]">{{index}}</mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                    </td>
-                                    <td><button (click)="removeProduct(product.id)" ><i class="fa fa-trash"></i></button></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="cart-page-inner">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="cart-summary">
-                                <div class="cart-content">
-                                    <h1>Cart Summary</h1>
-                                    <h2>Grand Total<span>$100</span></h2>
-                                </div>
-                                <div class="cart-btn">
-                                    <button hidden></button>
-                                    <button>Checkout</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- 
+<section class="section-pagetop bg">
+    <div class="container">
+        <h2 class="title-page">Купувачка кошничка</h2>
+    </div> 
+</section> -->

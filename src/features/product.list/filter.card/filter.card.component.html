@@ -1,20 +1,66 @@
 <div class="card">
     <div class="card-body">
+
       <h3 class="card-title">Филтри</h3>
-      <h4 class="text-muted">Цена: </h4>
-      <mat-checkbox>Под 500 денари</mat-checkbox><br>
-      <mat-checkbox>500ден. - 1000ден.</mat-checkbox><br>
-      <mat-checkbox>1000ден. - 1500ден.</mat-checkbox><br>
-      <mat-checkbox>Над 1500 денари</mat-checkbox><br>
+
+      <mat-form-field style="width:100%" appearance="fill">
+        <mat-label>Сортирај</mat-label>
+        <mat-select panelClass="matRole">
+          <mat-option value="option1">Цена ниско > високо</mat-option>
+          <mat-option value="option2">Цена високо > ниско</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- <hr> -->
+
+      <h6 class="text-muted">Цена: </h6>
+      <mat-checkbox [color]="color">
+          Под 500
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        500 - 1000
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        Над 1000
+       </mat-checkbox>
+
       <hr>
-      <h4>Боја:</h4>
-      <mat-checkbox>Бела</mat-checkbox><br>
-      <mat-checkbox>Црвена</mat-checkbox><br>
-      <mat-checkbox>Жолта</mat-checkbox><br>
-      <mat-checkbox>Зелена</mat-checkbox><br>
-      <mat-checkbox>Розева</mat-checkbox><br>
-      <mat-checkbox>Лилава</mat-checkbox><br>
-      <mat-checkbox>Разновидно</mat-checkbox><br>
+
+      <h6 class="text-muted">Пригода:</h6>
+      <mat-checkbox [color]="color">
+        Свадба
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        Роденден
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        Веридба
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        Слава
+      </mat-checkbox><br>
+
+      <hr>
+
+      <h6 class="text-muted">Боја:</h6>
+      <mat-checkbox [color]="color">
+        Црвена
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        Жолта
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        Зелена
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        Виолетова
+      </mat-checkbox><br>
+      <mat-checkbox [color]="color">
+        Плава
+      </mat-checkbox><br>
+
+      <hr>
+
       <a class="btn btn-primary btn-sm">Филтрирај</a>
     </div>
   </div>
