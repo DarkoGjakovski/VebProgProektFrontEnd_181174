@@ -1,0 +1,34 @@
+<div class="client-card">
+    <div class="matIcon">
+        <mat-icon (click)="deleteProduct()">delete</mat-icon>
+    </div>
+    <div class="product-image">
+        <img class="profile-image" [src]="product.image" alt="">
+    </div>
+    <div class="flexBox">
+        <div class="profile-main">
+            <!-- <p class="profile-body" clall="text-muted">Име:</p> -->
+            <br>
+            <h2 class="profile-name">{{product.title}}</h2>
+        </div>
+        <div class="profile-main">
+            <!-- <p class="profile-body" clall="text-muted">Цена:</p> -->
+            <br>
+            <p class="profile-name">{{product.price}}ден.</p>
+        </div>
+        <div class="profile-last">
+            <br>
+            <div class="quantity">
+                <div class="matIcon">
+                    <button (click)="decreaseQuantity()" [disabled]="quantity===1" ><mat-icon>remove_circle</mat-icon></button>
+                </div>
+                <div class="qnumber">
+                    <p class="pnumber">{{quantity}}</p>
+                </div>
+                <div class="matIcon">
+                    <button (click)="increaseQuantity()"><mat-icon>add_circle</mat-icon></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

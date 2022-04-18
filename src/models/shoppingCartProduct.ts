@@ -1,8 +1,11 @@
+import { Product } from "./product";
+
 export class ShoppingCartProduct{
-    id: number = 0;
-    image: string = '';
-    title: string = '';
-    description: string = '';
-    price: number = 0;
-    quantity: number = 1;
+    product: Product = new Product();
+    quantity: number = 0;
+
+    constructor(product: Product, quantity: number){
+        this.product = product;
+        this.quantity = quantity;
+    }
 }

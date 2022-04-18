@@ -1,6 +1,37 @@
-<!-- 
-<section class="section-pagetop bg">
-    <div class="container">
-        <h2 class="title-page">Купувачка кошничка</h2>
-    </div> 
-</section> -->
+<div class="container">
+    <div class="row">
+        <h1>Кошничка на производи:</h1>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-8">
+          <app-shopping-cart-product *ngFor="let product of shoppingCartProducts.value" (refreshTotalNumber)="updateTotal()" (refreshItems)="refreshItems()" [quantity]="product.quantity" [product]="product.product"></app-shopping-cart-product>
+        </div>
+        <div class="col-4">
+            <div class="summary-card">
+                <div class="product-title">
+                    <h1 class="text-muted">Број на производи:</h1>
+                    <h1 class="flex-right">x{{totalProducts}}</h1>
+                </div>
+                <br>
+                <div class="product-title">
+                    <div class="center">
+                        <h1 class="text-muted">Достава </h1>
+                    </div>
+                    <mat-slide-toggle (change)="changeDelivery()"></mat-slide-toggle>
+                    <h1 class="flex-right center">{{delivery}}ден.</h1>
+                </div>
+                <hr>
+                <div class="profile-main">
+                    <h1 class="text-muted">Вкупно:</h1>
+                    <h1 class="flex-right">{{totalPrice}}ден.</h1>
+                </div>
+                <br>
+                <div class="profile-button">
+                    <button class="btn btn-primary">Продолжи кон плаќање</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -5,7 +5,9 @@ import {
   Input
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Product } from 'src/models/product';
+import { ProductService } from 'src/services/product.service';
 import { ShoppingCartService } from 'src/services/shoppingCart.service';
 
 @Component({
@@ -16,19 +18,39 @@ import { ShoppingCartService } from 'src/services/shoppingCart.service';
 })
 export class productCardComponent implements OnInit {
 
-  @Input() product: Product | undefined;
+  @Input() product!: Product;
+  isInCart = new BehaviorSubject<boolean>(false);
 
-  constructor(private router: Router, private shoppingCartService: ShoppingCartService){}
+  constructor(private productService: ProductService){
+    
+  }
   
   ngOnInit(): void {
+    if(localStorage.getItem('cartItems')!=null){
+      let cartProducts = JSON.parse(localStorage.getItem("cartItems") || "[]");
+      for(let productItem of cartProducts){
+        if(this.product?.id == productItem.product.id){
+          this.isInCart.next(true)
+          break;
+        }
+      }
+    }
   }
 
   navigateToUrl(){
   }
 
   addToCart(){
-    if(this.product!=undefined)
-    this.shoppingCartService.addShoppingCartProduct(this.product)
+    console.log(this.product!.id!)
+    this.productService.addProductToShoppingCart(this.product.id!)
+    this.isInCart.next(true)
+  }
+
+  removeFromCart(){
+    console.log(this.product!.id!)
+    this.productService.forceRemoveItem(this.product.id!)
+    this.isInCart.next(false)
   }
 
 }
+

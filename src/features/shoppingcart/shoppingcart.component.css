@@ -6,3 +6,149 @@
   margin-top: 20px;
 }
 
+.container{
+  margin-top: 60px;
+  height: fit-content;
+  min-height: 100%;
+}
+
+.summary-card {
+  display: flex;
+  min-height: 230px;
+  flex-direction: column;
+  padding: 2em;
+  background-color: white;
+  border-radius: 0.35rem;
+  box-shadow: 0 1px 15px 1px #3e396b12;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.btn{
+  background-color: rgb(107 84 168);
+  color: white;
+  margin-left: auto;
+}
+
+mat-slide-toggle{
+  padding-left: 20px;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  margin:0px
+}
+
+.flex-right{
+  margin-left: auto;
+}
+
+.product-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.flexBox{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    text-align: center;
+}
+
+.profile-name{
+    padding-right: 50px;
+}
+
+.text-muted{
+    color: #6b6f82;
+    margin-bottom: 0px;
+}
+
+.profile-body {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+}
+
+.qnumber{
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.pnumber{
+  font-size: 27px;
+}
+
+button{
+    background: none;
+    border: none;
+    color: rgb(107 84 168);
+    display: flex;
+    align-items: center;
+}
+
+button:disabled{
+  color: rgb(175, 166, 200);
+}
+
+.matIcon{
+  display: flex;
+  align-items: center;
+  color: rgb(107 84 168);
+  cursor: pointer;
+}
+
+.profile-last{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.quantity{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 750px) {
+  .client-card {
+    height: 100%;
+  }
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 35px;
+}
+
+.profile-name {
+  font-size: 2em;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 1000px) {
+  .client-card {
+    flex-direction: row;
+  }
+}
+
+.profile-country {
+  color: #6b6f82 !important;
+}
+
+.profile-main{
+    display: flex;
+    align-items: center;
+}
+

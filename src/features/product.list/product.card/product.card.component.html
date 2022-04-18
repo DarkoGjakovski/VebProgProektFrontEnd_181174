@@ -7,7 +7,8 @@
         <p class="card-text">{{product?.price}}ден.</p>
       </div>
       <div class="card-buttons">
-          <mat-icon class="cart" (click)="addToCart()"  [ngStyle]="{'color':'rgb(107 84 168)'}">add_shopping_cart</mat-icon>
+          <span title="Додадете во кошничка" *ngIf="!isInCart.value" class="cart material-icons-outlined" (click)="addToCart()"  [ngStyle]="{'color':'rgb(107 84 168)'}">add_shopping_cart</span>
+          <span title="Отстранете од кошничка" *ngIf="isInCart.value" class="cart material-icons-outlined" (click)="removeFromCart()"  [ngStyle]="{'color':'rgb(107 84 168)'}">remove_shopping_cart</span>
       </div>
     </div>
 </div>

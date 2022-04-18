@@ -37,10 +37,11 @@
     font-size: 40px;
     display: flex;
     flex-direction: row;
+    padding:25px;
   }
   
   .social a{
-    color: rgb(74 59 178);
+    color: rgb(255, 255, 255);
   }
   
   .footer-basic .social > a {
@@ -51,7 +52,7 @@
     display:inline-block;
     text-align:center;
     border-radius:50%;
-    border:1px solid #ccc;
+    border:1px solid rgb(255, 255, 255);
     margin:0 8px;
     color:inherit;
     opacity:0.75;
@@ -60,7 +61,7 @@
   a,
   a:visited,
   a:hover {
-    color: #797a7a;
+    color: #ffffff;
     text-decoration: none;
     padding: 10px;
   }
@@ -87,7 +88,7 @@
     left: 0;
     height: 4px;
     background: rgb(58, 58, 58);
-    color: #c2c3c4;
+    color: #ffffff;
     width: 100%;
     font-size: 2rem;
     line-height: 0;
@@ -108,7 +109,7 @@
     border-radius: 40px;
     margin: 8px;
     background-color: white;
-    border: 1px solid #eeeeee;
+    border: 1px solid #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,6 +194,7 @@
     align-items: center;
     line-height: 20px;
     padding-bottom: 30px;
+    background-color: rgb(107 84 168);
   }
 
   footer a {
@@ -204,11 +206,11 @@
     opacity:0.9;
   }
   
-  .footer-basic .copyright {
+.copyright {
     margin-top:15px;
     text-align:center;
     font-size:13px;
-    color:#aaa;
+    color:rgb(255, 255, 255);
     margin-bottom:0;
   }
   

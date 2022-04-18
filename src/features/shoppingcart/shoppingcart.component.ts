@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Product } from 'src/models/product';
+import { ShoppingCartProduct } from 'src/models/shoppingCartProduct';
+import { ProductService } from 'src/services/product.service';
 import { ShoppingCartService } from 'src/services/shoppingCart.service';
 
 @Component({
@@ -9,18 +12,46 @@ import { ShoppingCartService } from 'src/services/shoppingCart.service';
 })
 export class ShoppingcartComponent implements OnInit {
 
-  shoppingCartProducts: Product[] = []
-  selected: number = 1;
+  // shoppingCartProducts: Product[] = []
+  shoppingCartProducts = new BehaviorSubject<ShoppingCartProduct[]>([])
+  totalProducts: number = 0;
+  totalPrice: number = 0;
+  delivery: number = 0;
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+  constructor(private productService: ProductService) { 
+
+  }
 
   ngOnInit(): void {
-    this.shoppingCartProducts = this.shoppingCartService.getShoppingCartProducts();
+    this.shoppingCartProducts.next(this.productService.getShoppingCartProduct());
+    this.totalProducts = this.productService.getTotalCartQuantity()
+    this.totalPrice = this.productService.getCartProductsPrice()
+
+    console.log(this.shoppingCartProducts.value)
+  }
+
+  refreshItems(){
+    this.shoppingCartProducts.next(this.productService.getShoppingCartProduct());
   }
 
   removeProduct(id: number){
-    this.shoppingCartService.removeShoppingCartProduct(id)
-    this.shoppingCartProducts = this.shoppingCartService.getShoppingCartProducts();
+    this.productService.removeProductFromShoppingCart(id)
+    this.shoppingCartProducts.next(this.productService.getShoppingCartProduct());
   }
 
+  changeDelivery(){
+    if(this.delivery==0){
+      this.delivery=100
+      this.totalPrice = this.totalPrice+100
+    }else{
+      this.delivery=0
+      this.totalPrice = this.totalPrice-100
+    }
+  }
+
+  updateTotal(){
+    this.totalProducts = this.productService.getTotalCartQuantity()
+    this.totalPrice = this.productService.getCartProductsPrice()
+  }
+  
 }

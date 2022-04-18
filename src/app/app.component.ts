@@ -1,6 +1,7 @@
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { ProductService } from 'src/services/product.service';
 import { fadeAnimation } from './animations';
 
 @Component({
@@ -9,12 +10,28 @@ import { fadeAnimation } from './animations';
   styleUrls: ['./app.component.css'],
   animations: [fadeAnimation]
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   title = 'anemona';
-  sub: Subscription = new Subscription();
+  numberOfItemsInCart = new BehaviorSubject<number>(0);
 
-  constructor(private route: ActivatedRoute, private ref: ChangeDetectorRef){
+  constructor(private productService: ProductService, private changeDet: ChangeDetectorRef){
+    if(localStorage.getItem("cartItems")==null)
+      localStorage.setItem("cartItems",JSON.stringify([]))
+
+    this.productService.numberOfItemsInCart.subscribe(newValue => {
+      this.numberOfItemsInCart.next(newValue)
+    })
   }
+
+  ngOnInit(): void {
+    if(localStorage.getItem("cartItems")!==null){
+      let cartProducts = JSON.parse(localStorage.getItem("cartItems") || "[]");
+      console.log("madjfnsidvbsuidv "+cartProducts.length)
+      this.numberOfItemsInCart.next(cartProducts.length)
+      this.changeDet.detectChanges()
+    }
+  }
+
 
 
 }

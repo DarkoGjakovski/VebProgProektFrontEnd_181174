@@ -20,6 +20,9 @@ import { ProductService } from 'src/services/product.service';
 import { ShoppingCartService } from 'src/services/shoppingCart.service';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ShoppingCartProductComponent } from 'src/features/shoppingcart/shoppingCartProduct/shopping-cart-product/shopping-cart-product.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FilterCardComponent,
     ShoppingcartComponent,
     productCardComponent,
-    FooterComponent
+    FooterComponent,
+    ShoppingCartProductComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +44,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatIconModule,
     MatSliderModule,
     MatCheckboxModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [ProductService, ShoppingCartService],
   bootstrap: [AppComponent]

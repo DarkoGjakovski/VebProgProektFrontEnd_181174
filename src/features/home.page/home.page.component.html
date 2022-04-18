@@ -4,8 +4,95 @@
         <button class="lg-bt-text">КУПУВАЈ</button>
         <span class="arrow" style="font-size: large;padding: 5px;padding-left: 0px;margin-top: -3px;">&#8594;</span>
     </div>
-    
-    
-      
+
 </section>
+
+<section class="categories">
+
+    <div class="section-title">
+        <h1 class="title">Категории на производи</h1>
+    </div>
+
+    <hr>
+
+    <div class="grid" >
+
+        <div class="smallCard" [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}">
+            <img src="../../assets/cvekina.png">
+            <br>
+            <div class="overlay">
+                <p class="text">Цвеќиња</p>
+            </div>
+        </div>
+
+        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'букети'}">
+            <img src="../../assets/buket.jpg">
+            <br>
+            <div class="overlay">
+                <p class="text">Букети</p>
+            </div>
+        </div>
+
+        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'икебани'}">
+            <img src="../../assets/ikebana.jpg">
+            <br>
+            <div class="overlay">
+                <p class="text">Икебани</p>
+            </div>
+        </div>
+
+        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'декорации'}">
+            <img src="../../assets/svadbi.jpeg">
+            <br>
+            <div class="overlay">
+                <p class="text">Декорации за свадби</p>
+            </div>
+        </div>
+    </div>  
+</section>
+
+<section class="hero-section section">  
+    <div class="container">
+        <div class="highlight tb">
+            <div class="tb-cell">
+                <p>Зачувајте ги вашите омилени производи преку срцето во десниот агол на производите.<br>
+                Можност за плаќање со кредитна или дебитна картичка!</p>
+            </div>
+            <div class="links tb-cell">
+                <div class="reservation-link">
+                    <a [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}" class="btn reservation-btn">ПРОДОЛЖЕТЕ</a> 
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+<div class="div-pattern"></div>
+
+<section class="about" name="about">
+
+    <div class="section-title">
+        <h1 class="title">За нас</h1>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="flexBox">
+        <div class="imageFlex"><img class="img-responsive" src="../../assets/cvekina.png" align=""> </div>
+        <div class="textFlex">
+            <h3>Who we are</h3>
+            <p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel. Te sit malorum ceteros repudiandae, ne tritani adipisci vis.</p>
+            <p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel.</p>
+            <h3>Who we are</h3>
+            <p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel. Te sit malorum ceteros repudiandae, ne tritani adipisci vis.</p>
+            <p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel. Te sit malorum ceteros repudiandae, ne tritani adipisci vis.</p>
+            <p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel. Te sit malorum ceteros repudiandae, ne tritani adipisci vis.</p>
+        </div>
+        </div>
+    </div>
+
+</section>
+
+
 <app-footer></app-footer>
+
