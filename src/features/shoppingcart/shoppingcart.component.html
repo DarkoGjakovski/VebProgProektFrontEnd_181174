@@ -1,10 +1,15 @@
 <div class="container">
     <div class="row">
-        <h1>Кошничка на производи:</h1>
+        <h1 class="title">Кошничка на производи:</h1>
     </div>
     <br>
     <div class="row">
         <div class="col-8">
+          <ng-template [ngIf]="totalProducts==0">
+            <div class="emptyCard">
+                <h1>Вашата кошничка е празна!</h1>
+            </div>
+          </ng-template>  
           <app-shopping-cart-product *ngFor="let product of shoppingCartProducts.value" (refreshTotalNumber)="updateTotal()" (refreshItems)="refreshItems()" [quantity]="product.quantity" [product]="product.product"></app-shopping-cart-product>
         </div>
         <div class="col-4">
@@ -28,7 +33,7 @@
                 </div>
                 <br>
                 <div class="profile-button">
-                    <button class="btn btn-primary">Продолжи кон плаќање</button>
+                    <button [disabled]="totalProducts==0" class="btn btn-primary">Продолжи кон плаќање</button>
                 </div>
             </div>
         </div>

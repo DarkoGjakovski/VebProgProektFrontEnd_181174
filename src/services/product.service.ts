@@ -54,6 +54,31 @@ export class ProductService{
         this.numberOfItemsInCart.next(cartProducts.length)
       }
 
+      addorRemoveProductToFavorites(id: number){
+        let favorites = new Array();
+        if(localStorage.getItem('favorites')){
+            favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+        }
+
+        let newfavoriteProduct = favorites.find(product => product.id === id);
+
+        if(newfavoriteProduct){
+            favorites = favorites.filter(product => product.id !== id)
+            this.snackBarService.open('Успешно отстрането од омилени продукти','',{
+                duration: 3000,
+                panelClass: ['blue-snackbar']
+            });
+        }else{
+            favorites.push(this.products.find(product => product.id === id));
+            this.snackBarService.open('Успешно додадено во омилени продукти','',{
+                duration: 3000,
+                panelClass: ['blue-snackbar']
+            });
+        }
+
+        localStorage.setItem("favorites",JSON.stringify(favorites))
+      }
+
       forceRemoveItem(id: number){
         let cartProducts = new Array();
         if(localStorage.getItem('cartItems')){
@@ -78,6 +103,24 @@ export class ProductService{
         }
 
         return cartProducts;
+      }
+
+      getFavoriteProducts(){
+        let favorites = new Array();
+        if(localStorage.getItem('favorites')){
+            favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+        }
+
+        return favorites;
+      }
+
+      isProductInFavories(id: number){
+        let favorites = new Array();
+        if(localStorage.getItem('favorites')){
+            favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+        }
+
+        return favorites.find(product => product.id === id);
       }
 
       getTotalCartQuantity(){

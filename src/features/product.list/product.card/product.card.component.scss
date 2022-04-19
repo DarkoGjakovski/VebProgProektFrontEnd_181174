@@ -27,6 +27,14 @@ mat-icon{
   cursor: pointer;
 }
 
+fa-icon{
+  font-size: 25px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: rgb(107 84 168);
+}
+
+
 .material-icons-outlined{
   font-size: 30px;
   margin-right: 20px;
@@ -45,16 +53,16 @@ mat-icon{
 //   border-bottom: 1px solid rgb(74 59 178);
 // }
 
-.card .heart{
+.card fa-icon{
   position: absolute;
-  right: 5px;
+  right: 2px;
   top: 5px;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
-.card:hover .heart{
+.card:hover fa-icon{
   opacity: 1;
   visibility: visible;
 }

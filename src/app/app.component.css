@@ -31,6 +31,8 @@
     right: 0;
     height: 90px;
     display: flex;
+    width: fit-content;
+    min-width: 100%;
     align-items: center;
     /* background-color: #fdfafa; */
     background-color: white;
@@ -39,6 +41,19 @@
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.2);
     padding-top: 5px;
     z-index: 9999;
+    border-bottom: px solid #e4e4e4;
+    overflow: hidden;
+  }
+
+  mat-toolbar{
+    height: 90px;
+    position: relative;
+    z-index: 5;
+    /* background-color: #fdfafa; */
+    background-color: white;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.2);
     border-bottom: px solid #e4e4e4;
     overflow: hidden;
   }
@@ -65,6 +80,10 @@
     transform: scale(1.1);
   }
 
+  .menubtn{
+    color: black;
+  }
+
   .searchbox {
     display: flex;
     justify-content: flex-end;
@@ -86,7 +105,8 @@
   }
 
   .toolbar img {
-    margin: 0 86px;
+    margin: 76px;
+    width: 200px;
   }
 
   link{
@@ -336,32 +356,59 @@
     width: 1920px;
   }
 
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
+  
 
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
 
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
+mat-sidenav {
+    width: 250px;
+}
 
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
+.mat-drawer-content{
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media (max-width: 750px) {
+  .toolbar > img{
+    width: 150px;
+    margin: 0px;
+    margin-left: 20px;
   }
+}
 
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
+.menu_container {
+  width: 100px;
+  height: 60px;
+  position: relative;
+}
+.menu {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
+main {
+    padding: 10px;
+}
+
+/* for sidenav to take a whole page */
+html, body { 
+  margin: 0;
+  height: 100%;
+}

@@ -243,6 +243,16 @@ html{
     padding: 0;
     font-size: 18px;
 }
+
+.textFlex > p {
+    font-size: 15px;
+}
+
+.textFlex > h3 {
+    color: rgb(107, 84, 168);
+    font-size: 20px;
+}
+
 .reservation-btn{
     background:#000;
     border-radius:0px;

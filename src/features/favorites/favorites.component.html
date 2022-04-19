@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <h1 class="title">Омилени производи:</h1>
+    </div>
+    <br>
+    <div class="row">
+        <div class="grid">  
+            <app-productCard *ngFor="let product of products | async" [product]="product"></app-productCard >
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -7,9 +7,32 @@
 }
 
 .container{
-  margin-top: 60px;
+  margin-top: 50px;
   height: fit-content;
   min-height: 100%;
+}
+
+.title{
+  color: #6b6f82;
+}
+
+.emptyCard {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  min-height: 230px;
+  flex-direction: column;
+  padding: 2em;
+  background-color: white;
+  border-radius: 0.35rem;
+  box-shadow: 0 1px 15px 1px #3e396b12;
+  margin: 10px;
+}
+
+.emptyCard > h1{
+  margin: auto;
+  color: #6b6f82;
 }
 
 .summary-card {

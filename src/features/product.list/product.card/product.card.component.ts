@@ -5,6 +5,7 @@ import {
   Input
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { faFilm, faHeartCircleMinus, faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from 'src/models/product';
 import { ProductService } from 'src/services/product.service';
@@ -18,8 +19,11 @@ import { ShoppingCartService } from 'src/services/shoppingCart.service';
 })
 export class productCardComponent implements OnInit {
 
+  heartPlusIcon = faHeartCirclePlus;
+  heartMinusIcon = faHeartCircleMinus;
   @Input() product!: Product;
   isInCart = new BehaviorSubject<boolean>(false);
+  isInFavorites = new BehaviorSubject<boolean>(false);
 
   constructor(private productService: ProductService){
     
@@ -35,6 +39,11 @@ export class productCardComponent implements OnInit {
         }
       }
     }
+    if(localStorage.getItem('favorites')!=null){
+      if(this.productService.isProductInFavories(this.product.id!)){
+        this.isInFavorites.next(true)
+      }
+    }
   }
 
   navigateToUrl(){
@@ -46,8 +55,12 @@ export class productCardComponent implements OnInit {
     this.isInCart.next(true)
   }
 
+  addorRemoveFromFavorites(){
+    this.productService.addorRemoveProductToFavorites(this.product.id!)
+    this.isInFavorites.next(!this.isInFavorites.value)
+  }
+
   removeFromCart(){
-    console.log(this.product!.id!)
     this.productService.forceRemoveItem(this.product.id!)
     this.isInCart.next(false)
   }

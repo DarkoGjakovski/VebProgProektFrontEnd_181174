@@ -23,6 +23,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ShoppingCartProductComponent } from 'src/features/shoppingcart/shoppingCartProduct/shopping-cart-product/shopping-cart-product.component';
+import { FavoritesComponent } from 'src/features/favorites/favorites.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {FlexLayoutModule} from '@angular/flex-layout'
+import {MatMenuModule} from '@angular/material/menu'
+import {MatButtonModule} from '@angular/material/button'
+import {MatTabsModule} from '@angular/material/tabs'
+import {MatSidenavModule} from '@angular/material/sidenav'
+
 
 @NgModule({
   declarations: [
@@ -34,7 +43,8 @@ import { ShoppingCartProductComponent } from 'src/features/shoppingcart/shopping
     ShoppingcartComponent,
     productCardComponent,
     FooterComponent,
-    ShoppingCartProductComponent
+    ShoppingCartProductComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +58,14 @@ import { ShoppingCartProductComponent } from 'src/features/shoppingcart/shopping
     BrowserAnimationsModule,
     MatSelectModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FontAwesomeModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatTabsModule
   ],
   providers: [ProductService, ShoppingCartService],
   bootstrap: [AppComponent]

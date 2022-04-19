@@ -26,12 +26,14 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     if(localStorage.getItem("cartItems")!==null){
       let cartProducts = JSON.parse(localStorage.getItem("cartItems") || "[]");
-      console.log("madjfnsidvbsuidv "+cartProducts.length)
       this.numberOfItemsInCart.next(cartProducts.length)
       this.changeDet.detectChanges()
     }
   }
 
 
+  onToggleSidenav(){
+
+  }
 
 }

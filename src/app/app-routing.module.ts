@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FavoritesComponent } from 'src/features/favorites/favorites.component';
 import { HomePageComponent } from 'src/features/home.page/home.page.component';
 import { ProductListComponent } from 'src/features/product.list/product.list.component';
 import { ShoppingcartComponent } from 'src/features/shoppingcart/shoppingcart.component';
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'shoppingcart', component: ShoppingcartComponent
+  },
+  {
+    path: 'favorites', component: FavoritesComponent
   },
   {
     path: '**',
