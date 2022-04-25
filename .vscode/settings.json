@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/35d88a42-e9b7-4403-ab0d-d682b6a764ec/resourceGroups/anemona_group/providers/Microsoft.Web/sites/anemona",
+    "appService.deploySubpath": "."
+}

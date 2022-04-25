@@ -58,6 +58,7 @@ export class productCardComponent implements OnInit {
   addorRemoveFromFavorites(){
     this.productService.addorRemoveProductToFavorites(this.product.id!)
     this.isInFavorites.next(!this.isInFavorites.value)
+    this.productService.numberOfFavoriteItems.emit()
   }
 
   removeFromCart(){

@@ -184,11 +184,19 @@
       display: none;
       visibility: hidden;
     }
+
+    .list-inline{
+      padding-left: 0;
+      list-style: none;
+      DISPLAY: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
   }
 
   footer {
     bottom: 0px;
-    margin-top: 35px;
     display: flex;
     flex-direction: column;
     align-items: center;

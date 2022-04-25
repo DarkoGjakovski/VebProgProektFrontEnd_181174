@@ -17,6 +17,9 @@ export class FavoritesComponent implements OnInit {
   pageNumber: number = 1;
 
   constructor(private productService: ProductService) {
+    this.productService.numberOfFavoriteItems.subscribe(value => {
+      this.products.next(this.productService.getFavoriteProducts());
+    })
   }
 
   ngOnDestroy(): void {
@@ -25,7 +28,6 @@ export class FavoritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.products.next(this.productService.getFavoriteProducts());
-    window.scrollTo(0, 0);
   }
 
 }

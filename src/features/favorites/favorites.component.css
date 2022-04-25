@@ -6,7 +6,36 @@
     min-height: 100%;
     width: 100%;
     background-color: #ffffff;
-    margin-bottom: 50px;
+}
+
+@media (max-width: 990px){
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr!important;
+    row-gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px
+  }
+}
+
+@media (max-width: 850px){
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr!important;
+    row-gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px
+  }
+}
+
+@media (max-width: 580px){
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr!important;
+    row-gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px
+  }
 }
 
 .title{

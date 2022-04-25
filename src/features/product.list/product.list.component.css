@@ -5,7 +5,6 @@
     height: fit-content;
     width: 100%;
     background-color: #ffffff;
-    margin-bottom: 50px;
 }
 
 .filters{
@@ -84,6 +83,37 @@
     left: -230px;
     z-index: -10;
     width: 1920px;
+  }
+
+
+  @media (max-width: 990px){
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: 40px;
+      margin-top: 50px;
+      margin-bottom: 20px
+    }
+  }
+
+  @media (max-width: 850px){
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 40px;
+      margin-top: 50px;
+      margin-bottom: 20px
+    }
+  }
+
+  @media (max-width: 580px){
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 40px;
+      margin-top: 50px;
+      margin-bottom: 20px
+    }
   }
 
   /* Responsive Styles */
@@ -184,4 +214,6 @@
   color:#aaa;
   margin-bottom:0;
 }
+
+
 

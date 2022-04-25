@@ -17,7 +17,7 @@
 
     <div class="grid" >
 
-        <div class="smallCard" [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}">
+        <div class="smallCard" (click)="go()">
             <img src="../../assets/cvekina.png">
             <br>
             <div class="overlay">
@@ -60,7 +60,7 @@
             </div>
             <div class="links tb-cell">
                 <div class="reservation-link">
-                    <a [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}" class="btn reservation-btn">ПРОДОЛЖЕТЕ</a> 
+                    <a [routerLink]="['/favorites']" [queryParams]="{c: 'цвеќиња'}" class="btn reservation-btn">ПРОДОЛЖЕТЕ</a> 
                 </div> 
             </div>
         </div>
@@ -94,7 +94,4 @@
     </div>
 
 </section>
-
-
 <app-footer></app-footer>
-

@@ -12,6 +12,18 @@
   min-height: 100%;
 }
 
+.flexBox{
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1000px) {
+  .flexBox{
+    display: flex;
+    flex-direction: column!important;
+  }
+}
+
 .title{
   color: #6b6f82;
 }
@@ -164,6 +176,23 @@ button:disabled{
   .client-card {
     flex-direction: row;
   }
+}
+
+.col-my-8{
+  flex: 0 0 auto;
+  width: 66.66666667%;
+}
+
+@media (max-width: 1000px) {
+  .col-my-4{
+    width: calc(100%)!important;
+    flex: 0 0 auto!important;
+  }
+}
+
+.col-my-4{
+  flex: 0 0 auto;
+  width: 33.33333333%;
 }
 
 .profile-country {

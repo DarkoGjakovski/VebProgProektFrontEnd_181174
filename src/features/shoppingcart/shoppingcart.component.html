@@ -3,7 +3,7 @@
         <h1 class="title">Кошничка на производи:</h1>
     </div>
     <br>
-    <div class="row">
+    <div class="flexBox">
         <div class="col-8">
           <ng-template [ngIf]="totalProducts==0">
             <div class="emptyCard">
@@ -12,7 +12,7 @@
           </ng-template>  
           <app-shopping-cart-product *ngFor="let product of shoppingCartProducts.value" (refreshTotalNumber)="updateTotal()" (refreshItems)="refreshItems()" [quantity]="product.quantity" [product]="product.product"></app-shopping-cart-product>
         </div>
-        <div class="col-4">
+        <div class="col-my-4">
             <div class="summary-card">
                 <div class="product-title">
                     <h1 class="text-muted">Број на производи:</h1>

@@ -16,6 +16,7 @@ html{
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     overflow-x: hidden;
+    background-color: white;
 }
 
 #about {
@@ -32,10 +33,12 @@ html{
 
 .categories{
     padding: 80px;
+    background-color: white;
 }
 
 .about{
     padding: 100px;
+    background-color: white;
 }
 
 .heading{
@@ -143,6 +146,45 @@ html{
     padding-bottom: 5rem;
 }
 
+
+@media screen and (max-width: 950px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 40px;
+        margin-bottom: 20px;
+        margin-top: 50px;
+      }
+      
+  }
+
+  @media (max-width: 1200px) {
+    .flexBox{
+        display: flex;
+        flex-direction: column!important;
+        width: 100%;
+    }
+    .imageFlex img {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding-right: 0px!important;
+        margin-bottom: 10px!important;
+    }
+    .imageFlex{
+        width: 100%;
+    }
+    .hero-section p {
+        color: #fff;
+        line-height: 20px!important;
+        margin: 0;
+        padding: 0;
+        font-size: 12px!important;
+    }
+  }
+
+
 .flexBox{
     display: flex;
     flex-direction: row;
@@ -206,6 +248,26 @@ html{
     row-gap: 40px;
     margin-bottom: 20px;
     margin-top: 50px;
+  }
+
+  @media screen and (max-width: 950px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 40px;
+        margin-bottom: 20px;
+        margin-top: 50px;
+      }
+  }
+
+  @media screen and (max-width: 650px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+        margin-bottom: 20px;
+        margin-top: 50px;
+      }
   }
 
   hr {
@@ -287,3 +349,5 @@ html{
     width:100%;
     display:block;
 }
+
+

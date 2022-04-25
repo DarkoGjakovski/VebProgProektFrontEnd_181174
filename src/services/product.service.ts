@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { BehaviorSubject } from "rxjs";
 import { Product } from "src/models/product";
@@ -8,6 +8,8 @@ import { ShoppingCartProduct } from "src/models/shoppingCartProduct";
 export class ProductService{
 
     numberOfItemsInCart = new BehaviorSubject<number>(0);
+    numberOfFavoriteItems = new EventEmitter<string>();
+
     
     constructor(private snackBarService: MatSnackBar){
 

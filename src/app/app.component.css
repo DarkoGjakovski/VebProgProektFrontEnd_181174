@@ -356,6 +356,10 @@
     width: 1920px;
   }
 
+  .flexBox{
+    display: flex;
+    flex-direction: row;
+  }
   
 
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
@@ -364,6 +368,12 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 
 mat-sidenav {
     width: 250px;
+}
+
+mat-sidenav-content{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .mat-drawer-content{

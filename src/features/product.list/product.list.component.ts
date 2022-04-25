@@ -57,8 +57,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.products.next(this.productService.getProducts());
-    window.scrollTo(0, 0);
+    this.products.next(this.productService.getProducts())
   }
 
 }

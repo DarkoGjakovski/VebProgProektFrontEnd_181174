@@ -97,6 +97,17 @@ fa-icon{
   }
 }
 
+@media screen and (max-width: 650px) {
+  .client-card{
+    height: 100%;
+  }
+  
+  fa-icon{
+    opacity: 1!important;
+    visibility: visible!important;
+  }
+}
+
 .profile-image {
   width: 150px;
   height: 150px;

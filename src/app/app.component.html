@@ -12,19 +12,32 @@
       <div class="menu centered">
         <app-searchbox></app-searchbox>
         <br>
-        <div style="text-align: center;">
-        <a class="nav-link" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}"> ЦВЕЌИЊА</a>
-         </div>
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'букети'}"> БУКЕТИ </a>
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'икебани'}"> ИКЕБАНИ </a>
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'декорации'}"> ДЕКОРАЦИИ </a>
-        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/favorites'"> ОМИЛЕНИ </a>
-      
+
+        <div class="flexBox">
+          <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}"> ЦВЕЌИЊА</a>
+        </div>
+        <div class="flexBox">
+          <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'букети'}"> БУКЕТИ </a>
+        </div>
+        <div class="flexBox">
+          <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'икебани'}"> ИКЕБАНИ </a>
+        </div>
+        <div class="flexBox">
+          <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'декорации'}"> ДЕКОРАЦИИ </a>
+        </div>
+        <div class="flexBox">
+          <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/favorites'"> ОМИЛЕНИ </a>
+        </div>
       </div>
     </div>
     
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content #nav>
     <!--in here all the content must reside. We will add a navigation header as well-->
     <div class="toolbar" role="banner">
 
@@ -68,7 +81,7 @@
 
     <div class="content" role="main" [@fadeAnimation]="o.isActivated ? o.activatedRoute : '' ">
 
-      <router-outlet #o="outlet"></router-outlet>
+      <router-outlet (activate)="onActivate($event)" #o="outlet"></router-outlet>
       
     </div>
   </mat-sidenav-content>
