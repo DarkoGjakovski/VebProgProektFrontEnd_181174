@@ -1,0 +1,143 @@
+.flexbox{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .card-title{
+    color: #444444;
+  }
+
+  .btn-primary{
+    background-color: rgb(107 84 168);
+    border: none;
+    /* margin-top: 10px; */
+}
+  
+  .card{
+    height: 402px;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 0px;
+    background-color: white;
+    /* border-radius: 0.35rem; */
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    text-align: center;
+  }
+  
+  .card-buttons{
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-icon{
+    font-size: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  fa-icon{
+    font-size: 25px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: rgb(107 84 168);
+  }
+  
+  
+  .material-icons-outlined{
+    font-size: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  .cart{
+    transition: transform 0.1s;
+  }
+  
+  .cart:hover{
+    transform: scale(1.1);
+  }
+  
+  /* // .card-img-top{
+  //   border-bottom: 1px solid rgb(74 59 178);
+  // } */
+  
+  .card fa-icon{
+    position: absolute;
+    right: 2px;
+    top: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .card:hover fa-icon{
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .shortcut-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .profile-sidebar{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-main{
+    text-align: center;
+    width: 100%;
+  }
+  
+  .profile-body{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    /* autoprefixer: off */
+    font-size: 14px;
+  }
+  
+  @media (max-width: 750px) {
+    .client-card{
+      height: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 650px) {
+    .client-card{
+      height: 100%;
+    }
+    
+    fa-icon{
+      opacity: 1!important;
+      visibility: visible!important;
+    }
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+  }
+  
+  .profile-name {
+    font-size: 1em;
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+  
+  @media (min-width: 1000px) {
+    .client-card {
+      flex-direction: column;
+    }
+  }
+  
+  .profile-country{
+    color: #6b6f82 !important;
+  }
+  
+  
+  

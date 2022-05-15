@@ -1,9 +1,14 @@
+import { Category } from "./category";
+
 export class Product{
     constructor(
         public id?:number,
-        public image?:string,
         public title?:string,
+        public price?:number,
+        public image?:string,
         public description?:string,
-        public price?:number){
+        public categories?: Category[]
+        ){
     }
 }
+

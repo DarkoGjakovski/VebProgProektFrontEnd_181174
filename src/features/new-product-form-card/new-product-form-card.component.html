@@ -1,0 +1,44 @@
+<div class="card">
+    <h4 style="margin-bottom: 3px">Нов продукт:</h4>
+    <form class="example-form">
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Име</mat-label>
+          <input type="email" matInput [formControl]="nameProduct"
+                 placeholder="Пр. Ружа">
+          <mat-error *ngIf="nameProduct.hasError('required')">
+            Сите полиња се задолжителни!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Цена</mat-label>
+            <input type="text" matInput [formControl]="priceProduct"
+                   placeholder="Пр. Ружа">
+            <mat-error *ngIf="nameProduct.hasError('required')">
+              Сите полиња се задолжителни!
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Слика</mat-label>
+            <input type="text" matInput [formControl]="imageProduct"
+                   placeholder="Пр. Ружа">
+            <mat-error *ngIf="nameProduct.hasError('required')">
+              Сите полиња се задолжителни!
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Категории</mat-label>
+            <mat-select [(ngModel)]="selectedCategories" name="category" multiple (valueChange)="onChange($event)">
+                <mat-option *ngFor="let category of categories.value" [value]="category">
+                {{category.name}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button class="btn btn-primary btn-sm" (click)="addProduct()" mat-button>Внесете</button>
+
+      </form>
+</div>

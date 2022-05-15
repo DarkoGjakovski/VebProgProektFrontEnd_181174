@@ -1,6 +1,7 @@
 <div class="card">
   <fa-icon *ngIf="!isInFavorites.value" (click)="addorRemoveFromFavorites()" [icon]="heartPlusIcon"></fa-icon>
   <fa-icon *ngIf="isInFavorites.value" (click)="addorRemoveFromFavorites()" [icon]="heartMinusIcon"></fa-icon>
+  <i class="fa fa-trash" (click)="deleteProduct()" aria-hidden="true"></i>
   <!-- <i id="heart" class="fa-solid fa-heart-circle-check"></i> -->
   <!-- <mat-icon class="heart" *ngIf="isInFavorites.value" (click)="addorRemoveFromFavorites()" style="padding-left: 10px;" [ngStyle]="{'color':'rgb(107 84 168)'}">heart_broken</mat-icon> -->
     <img class="card-img-top" [src]="product?.image" alt="Card image cap">

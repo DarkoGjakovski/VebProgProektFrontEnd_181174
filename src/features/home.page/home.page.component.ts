@@ -11,14 +11,17 @@ export class HomePageComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('notfirst')==null){
+      localStorage.setItem('notfirst',"1");
+      window.location.reload()
+    }
   }
 
   onBuyClicked(){
-    this.router.navigate(['products'],{queryParams: {c: "букети"}})
+    this.router.navigate(['products'],{queryParams: {c: "Cveke"}})
   }
 
   go(){
-    console.log('ebiseee')
   }
 
 

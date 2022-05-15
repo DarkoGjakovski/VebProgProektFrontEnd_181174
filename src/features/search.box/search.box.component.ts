@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-searchbox',
@@ -15,11 +16,12 @@ import {
 export class SearchBoxComponent implements OnInit {
   @Output() searchTerm = new EventEmitter<string>();
 
-  constructor() {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {}
 
   keyPress(event: any): void {
     const target = event.target as HTMLTextAreaElement;
+    this.searchService.search.emit(target.value)
   }
 }

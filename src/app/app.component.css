@@ -16,6 +16,10 @@
     margin: 8px 0;
   }
 
+  .hiddentoolbar{
+    visibility: hidden;
+  }
+
   p {
     margin: 0;
   }
@@ -25,6 +29,7 @@
   }
 
   .toolbar {
+    visibility: visible;
     position: absolute;
     top: 0;
     left: 0;

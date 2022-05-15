@@ -5,15 +5,15 @@
 
       <mat-form-field style="width:100%" appearance="fill">
         <mat-label>Сортирај</mat-label>
-        <mat-select panelClass="matRole">
-          <mat-option value="option1">Цена ниско > високо</mat-option>
-          <mat-option value="option2">Цена високо > ниско</mat-option>
+        <mat-select id="sort" [(value)]="selectedSort" panelClass="matRole">
+          <mat-option value="asc">Цена ниско > високо</mat-option>
+          <mat-option value="des">Цена високо > ниско</mat-option>
         </mat-select>
       </mat-form-field>
 
       <!-- <hr> -->
 
-      <h6 class="text-muted">Цена: </h6>
+      <!-- <h6 class="text-muted">Цена: </h6>
       <mat-checkbox [color]="color">
           Под 500
       </mat-checkbox><br>
@@ -22,11 +22,20 @@
       </mat-checkbox><br>
       <mat-checkbox [color]="color">
         Над 1000
-       </mat-checkbox>
+       </mat-checkbox> -->
 
-      <hr>
+       <mat-form-field style="width:100%" appearance="fill">
+        <mat-label>Цена</mat-label>
+        <mat-select id="price" [(value)]="selectedPrice" panelClass="matRole">
+          <mat-option value="500">Под 500</mat-option>
+          <mat-option value="1000">500 - 1000</mat-option>
+          <mat-option value="1500">Над 1000</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-      <h6 class="text-muted">Пригода:</h6>
+      <!-- <hr> -->
+
+      <!-- <h6 class="text-muted">Пригода:</h6>
       <mat-checkbox [color]="color">
         Свадба
       </mat-checkbox><br>
@@ -38,11 +47,21 @@
       </mat-checkbox><br>
       <mat-checkbox [color]="color">
         Слава
-      </mat-checkbox><br>
+      </mat-checkbox><br> -->
 
-      <hr>
+      <mat-form-field style="width:100%" appearance="fill">
+        <mat-label>Пригода</mat-label>
+        <mat-select id="occasion" [(value)]="selectedOccasion" panelClass="matRole">
+          <mat-option value="Svadba">Свадба</mat-option>
+          <mat-option value="Rodenden">Роденден</mat-option>
+          <mat-option value="Veridba">Веридба</mat-option>
+          <mat-option value="Slava">Слава</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-      <h6 class="text-muted">Боја:</h6>
+      <!-- <hr> -->
+
+      <!-- <h6 class="text-muted">Боја:</h6>
       <mat-checkbox [color]="color">
         Црвена
       </mat-checkbox><br>
@@ -57,10 +76,20 @@
       </mat-checkbox><br>
       <mat-checkbox [color]="color">
         Плава
-      </mat-checkbox><br>
+      </mat-checkbox><br> -->
 
-      <hr>
+      <mat-form-field style="width:100%" appearance="fill">
+        <mat-label>Бoja</mat-label>
+        <mat-select id="color" [(value)]="selectedColor" panelClass="matRole">
+          <mat-option value="Crvena">Црвена</mat-option>
+          <mat-option value="Zolta">Жолта</mat-option>
+          <mat-option value="Zelena">Зелена</mat-option>
+          <mat-option value="Plava">Плава</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-      <a class="btn btn-primary btn-sm">Филтрирај</a>
+      <!-- <hr> -->
+
+      <a class="btn btn-primary btn-sm" (click)="filterProducts()">Филтрирај</a>
     </div>
   </div>

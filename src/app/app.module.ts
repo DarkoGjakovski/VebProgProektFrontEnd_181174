@@ -18,7 +18,7 @@ import { ShoppingcartComponent } from 'src/features/shoppingcart/shoppingcart.co
 import {MatSelectModule} from '@angular/material/select';
 import { ProductService } from 'src/services/product.service';
 import { ShoppingCartService } from 'src/services/shoppingCart.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -31,6 +31,18 @@ import {MatMenuModule} from '@angular/material/menu'
 import {MatButtonModule} from '@angular/material/button'
 import {MatTabsModule} from '@angular/material/tabs'
 import {MatSidenavModule} from '@angular/material/sidenav'
+import { LoginComponent } from 'src/features/login/login.component';
+import { RegisterComponent } from 'src/features/register/register.component';
+import { AuthGuard } from 'src/guards/auth.guard';
+import { AuthInterceptor, httpInterceptorProviders } from 'src/guards/auth.interceptor';
+import { AuthService } from 'src/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FavoritesCartService } from 'src/services/favoritesCart.service';
+import { NewProductFormCardComponent } from 'src/features/new-product-form-card/new-product-form-card.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { CategoryService } from 'src/services/category.service';
+import { SearchService } from 'src/features/search.box/search.service';
 
 
 @NgModule({
@@ -44,9 +56,16 @@ import {MatSidenavModule} from '@angular/material/sidenav'
     productCardComponent,
     FooterComponent,
     ShoppingCartProductComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    LoginComponent,
+    RegisterComponent,
+    NewProductFormCardComponent,
+    SearchBoxComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     BrowserModule,
     NgxPaginationModule,
     AppRoutingModule,
@@ -65,9 +84,11 @@ import {MatSidenavModule} from '@angular/material/sidenav'
     MatMenuModule,
     MatButtonModule,
     MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule,
+    MatSelectModule
   ],
-  providers: [ProductService, ShoppingCartService],
+  providers: [ProductService, CategoryService, SearchService, ShoppingCartService, FavoritesCartService, httpInterceptorProviders, AuthService, AuthGuard, AuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

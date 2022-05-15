@@ -13,7 +13,8 @@
 
         <div class="col-lg-10">
             <div class="grid">  
-                <app-productCard *ngFor="let product of slicedList() | async" [product]="product"></app-productCard >
+                <app-productCard *ngFor="let product of slicedList() | async" [product]="product"></app-productCard >  
+                <app-new-product-form-card></app-new-product-form-card>
             </div>  
         </div>
 

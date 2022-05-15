@@ -1,10 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Observable, of } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from 'src/models/product';
 import { ProductService } from 'src/services/product.service';
+import { SearchService } from '../search.box/search.service';
 
 @Component({
   selector: 'app-productlist',
@@ -19,7 +20,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
   pageNumber: number = 1;
   sub: Subscription = new Subscription();
 
-  constructor(private productService: ProductService, private activeRoute: ActivatedRoute) { 
+  constructor(private productService: ProductService, 
+     private router: Router, 
+     private activeRoute: ActivatedRoute, 
+     private changedet: ChangeDetectorRef,
+     private searchService: SearchService) { 
+    this.sub.add(
+      this.router.events.subscribe(() => {
+        this.productService.getProducts(this.activeRoute.snapshot.queryParamMap.get('c')!).subscribe(result => {
+          this.products.next(result)
+          this.changedet.detectChanges()
+        })
+      })
+    )
     this.sub.add(
       this.activeRoute.queryParams.subscribe(newValue => {
         var editCasingTemp = newValue['c']
@@ -36,6 +49,28 @@ export class ProductListComponent implements OnInit, OnDestroy {
         }
       })
     )
+    this.sub.add(
+      this.productService.filter.subscribe((value)=>{
+        this.products.next(value);
+        this.changedet.detectChanges()
+      })
+    )
+    this.sub.add(
+      this.searchService.search.subscribe((value)=>{
+        this.productService.searchProducts(value).subscribe(newItems => {
+          this.products.next(newItems);
+          this.changedet.detectChanges()
+        })
+      })
+    )
+    this.sub.add(
+      this.productService.changeProducts.subscribe(()=>{
+        this.productService.getProducts(this.activeRoute.snapshot.queryParamMap.get('c')!).subscribe(result => {
+          this.products.next(result)
+          this.changedet.detectChanges()
+        })
+      })
+    )
   }
 
   ngOnDestroy(): void {
@@ -43,7 +78,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   slicedList(): Observable<Product[]> {
-    console.log(this.products.value.slice((this.pageNumber-1)*8,(this.pageNumber)*8))
     return of(this.products.value.slice((this.pageNumber-1)*8,(this.pageNumber)*8))
   }
 
@@ -53,11 +87,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   changePage(page: number){
     this.pageNumber = page;
-    console.log(this.pageNumber)
   }
 
   ngOnInit(): void {
-    this.products.next(this.productService.getProducts())
+    this.productService.getProducts(this.activeRoute.snapshot.queryParamMap.get('c')!).subscribe(result => {
+      this.products.next(result)
+    })
   }
+
 
 }

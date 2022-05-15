@@ -1,0 +1,16 @@
+<div class="wrapper fadeInDown">
+    <div style="margin-top: -130px;" id="formContent">
+      <div class="alert alert-warning" *ngIf='isLoginFailed'>{{errorMessage}}</div>
+      <!-- Tabs Titles -->
+      <img style="padding-top:20px;padding-bottom:20px;" src="../../assets/LOGOweb.png">
+  
+      <!-- Login Form -->
+      <form>
+        <input type="text" id="email" class="fadeIn second" [(ngModel)]="email" name="username" placeholder="Email">
+        <input type="password" id="password" class="fadeIn third" [(ngModel)]="password" name="password" placeholder="Password">
+        <input type="submit" class="submit" (click)=handleLogin() class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <a class="register" [routerLink]="['/register']">Register</a>
+    </div>
+  </div>

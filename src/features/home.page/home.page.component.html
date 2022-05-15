@@ -17,7 +17,7 @@
 
     <div class="grid" >
 
-        <div class="smallCard" (click)="go()">
+        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'Cveke'}">
             <img src="../../assets/cvekina.png">
             <br>
             <div class="overlay">
@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'букети'}">
+        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'Buket'}">
             <img src="../../assets/buket.jpg">
             <br>
             <div class="overlay">
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'икебани'}">
+        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'Ikebana'}">
             <img src="../../assets/ikebana.jpg">
             <br>
             <div class="overlay">
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'декорации'}">
+        <div class="smallCard" [routerLink]="'/products'" [queryParams]="{c: 'Dekoracija'}">
             <img src="../../assets/svadbi.jpeg">
             <br>
             <div class="overlay">

@@ -18,26 +18,33 @@ export class ShoppingcartComponent implements OnInit {
   totalPrice: number = 0;
   delivery: number = 0;
 
-  constructor(private productService: ProductService) { 
+  constructor(private productService: ProductService, private shoppingCartService: ShoppingCartService) { 
 
   }
 
   ngOnInit(): void {
-    this.shoppingCartProducts.next(this.productService.getShoppingCartProduct());
-    this.totalProducts = this.productService.getTotalCartQuantity()
-    this.totalPrice = this.productService.getCartProductsPrice()
+    this.shoppingCartService.getShoppingCartProducts().subscribe(result => {
+      console.log(result)
+      this.shoppingCartProducts.next(result)
+    })
+    this.shoppingCartService.getTotalCartQuantity().subscribe(newNumber => {
+      this.totalProducts = newNumber;
+    })
+    this.shoppingCartService.getCartProductsPrice().subscribe(newPrice => {
+      this.totalPrice = newPrice;
+    })
 
     console.log(this.shoppingCartProducts.value)
   }
 
   refreshItems(){
-    this.shoppingCartProducts.next(this.productService.getShoppingCartProduct());
+    console.log("items")
+    this.shoppingCartService.getShoppingCartProducts().subscribe(result => {
+    console.log(result)
+    this.shoppingCartProducts.next(result)
+    })
   }
 
-  removeProduct(id: number){
-    this.productService.removeProductFromShoppingCart(id)
-    this.shoppingCartProducts.next(this.productService.getShoppingCartProduct());
-  }
 
   changeDelivery(){
     if(this.delivery==0){
@@ -50,8 +57,14 @@ export class ShoppingcartComponent implements OnInit {
   }
 
   updateTotal(){
-    this.totalProducts = this.productService.getTotalCartQuantity()
-    this.totalPrice = this.productService.getCartProductsPrice()
+    this.shoppingCartService.getTotalCartQuantity().subscribe(newNumber => {
+      this.totalProducts = newNumber;
+      console.log("total")
+    })
+    this.shoppingCartService.getCartProductsPrice().subscribe(newPrice => {
+      this.totalPrice = newPrice;
+      console.log("total")
+    })
   }
   
 }

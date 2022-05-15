@@ -2,12 +2,17 @@ import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
-  Input
+  Input,
+  ChangeDetectorRef,
+  EventEmitter,
+  Output
 } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { faFilm, faHeartCircleMinus, faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from 'src/models/product';
+import { FavoritesCartService } from 'src/services/favoritesCart.service';
 import { ProductService } from 'src/services/product.service';
 import { ShoppingCartService } from 'src/services/shoppingCart.service';
 
@@ -24,26 +29,25 @@ export class productCardComponent implements OnInit {
   @Input() product!: Product;
   isInCart = new BehaviorSubject<boolean>(false);
   isInFavorites = new BehaviorSubject<boolean>(false);
+  @Output() changeInFav = new EventEmitter<string>();
 
-  constructor(private productService: ProductService){
+  constructor(private snackBar: MatSnackBar,
+     private shoppingCartService: ShoppingCartService,
+      private favoritesService: FavoritesCartService, 
+      private changeDetection: ChangeDetectorRef,
+      private productService: ProductService){
     
   }
   
   ngOnInit(): void {
-    if(localStorage.getItem('cartItems')!=null){
-      let cartProducts = JSON.parse(localStorage.getItem("cartItems") || "[]");
-      for(let productItem of cartProducts){
-        if(this.product?.id == productItem.product.id){
-          this.isInCart.next(true)
-          break;
-        }
-      }
-    }
-    if(localStorage.getItem('favorites')!=null){
-      if(this.productService.isProductInFavories(this.product.id!)){
-        this.isInFavorites.next(true)
-      }
-    }
+    this.favoritesService.isProductInFavories(this.product).subscribe(result => {
+      this.isInFavorites.next(result)
+      this.changeDetection.detectChanges()
+    })
+    this.shoppingCartService.isProductInShoppingCart(this.product).subscribe(result => {
+      this.isInCart.next(result)
+      this.changeDetection.detectChanges()
+    })
   }
 
   navigateToUrl(){
@@ -51,19 +55,45 @@ export class productCardComponent implements OnInit {
 
   addToCart(){
     console.log(this.product!.id!)
-    this.productService.addProductToShoppingCart(this.product.id!)
+    this.shoppingCartService.addShoppingCartProduct(this.product).subscribe(()=>{
+      this.shoppingCartService.numberOfItemsInCart.emit()
+    })
+    this.snackBar.open('Успешно додадено во кошничка','',{
+      duration: 3000,
+      panelClass: ['red-snackbar']
+  });  
     this.isInCart.next(true)
   }
 
   addorRemoveFromFavorites(){
-    this.productService.addorRemoveProductToFavorites(this.product.id!)
-    this.isInFavorites.next(!this.isInFavorites.value)
-    this.productService.numberOfFavoriteItems.emit()
+    if(this.isInFavorites.value === false){
+      this.favoritesService.addProductToFavoritesCart(this.product).subscribe(()=>{
+        this.isInFavorites.next(true)
+        console.log(this.isInFavorites.value)
+        this.changeInFav.emit('')
+        this.changeDetection.detectChanges()
+      });
+    }else{
+      this.favoritesService.removeProductFromFavoritesCart(this.product).subscribe(()=>{
+        this.isInFavorites.next(false);
+        console.log(this.isInFavorites.value)   
+        this.changeInFav.emit('')
+        this.changeDetection.detectChanges()
+      });
+    }
   }
 
   removeFromCart(){
-    this.productService.forceRemoveItem(this.product.id!)
+    this.shoppingCartService.deleteShoppingCartProduct(this.product).subscribe(()=>{
+      this.shoppingCartService.numberOfItemsInCart.emit()
+    })
     this.isInCart.next(false)
+  }
+
+  deleteProduct(){
+    this.productService.deleteProduct(this.product).subscribe(()=>{
+      this.productService.changeProducts.emit()
+    })
   }
 
 }

@@ -5,7 +5,7 @@
     <br>
     <div class="flexBox">
         <div class="col-8">
-          <ng-template [ngIf]="totalProducts==0">
+          <ng-template [ngIf]="shoppingCartProducts.value.length == 0">
             <div class="emptyCard">
                 <h1>Вашата кошничка е празна!</h1>
             </div>

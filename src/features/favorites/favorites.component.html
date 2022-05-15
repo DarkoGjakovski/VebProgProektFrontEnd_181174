@@ -5,7 +5,7 @@
     <br>
     <div class="row">
         <div class="grid">  
-            <app-productCard *ngFor="let product of products | async" [product]="product"></app-productCard >
+            <app-productCard (changeInFav)="changeInFav()" *ngFor="let product of products | async" [product]="product"></app-productCard >
         </div>
     </div>
 </div>

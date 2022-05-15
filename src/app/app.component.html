@@ -15,19 +15,19 @@
 
         <div class="flexBox">
           <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
-          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}"> ЦВЕЌИЊА</a>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" [queryParams]="{c: 'Cveke'}"> ЦВЕЌИЊА</a>
         </div>
         <div class="flexBox">
           <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
-          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'букети'}"> БУКЕТИ </a>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'Buket'}"> БУКЕТИ </a>
         </div>
         <div class="flexBox">
           <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
-          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'икебани'}"> ИКЕБАНИ </a>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'Ikebana'}"> ИКЕБАНИ </a>
         </div>
         <div class="flexBox">
           <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
-          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'декорации'}"> ДЕКОРАЦИИ </a>
+          <a class="nav-link" (click)="sidenav.toggle()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'Dekoracija'}"> ДЕКОРАЦИИ </a>
         </div>
         <div class="flexBox">
           <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
@@ -39,44 +39,48 @@
   </mat-sidenav>
   <mat-sidenav-content #nav>
     <!--in here all the content must reside. We will add a navigation header as well-->
-    <div class="toolbar" role="banner">
+    <ng-container *ngIf="loggedIn.value">
+      <div class="toolbar" role="banner">
 
-      <div class="menubtn" fxHide.gt-md>
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-
-
-      <img
-        alt="Angular Logo"
-        src="assets/LOGOweb.png" 
-        [routerLink]="'/home'"
-        style="cursor: pointer;" />
-    
-        <div class="spacer"></div>
-        
-        <span class="menu-spacer"></span>
-        <div fxFlex fxLayout fxLayoutAlign="end" fxHide.lt-lg routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="links">
-          <div class="flex-container"><a class="nav-link" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" [queryParams]="{c: 'цвеќиња'}"> ЦВЕЌИЊА <div class ="ac-brdr"></div></a></div>
-          <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
-          <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'букети'}"> БУКЕТИ </a></div>
-          <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
-          <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'икебани'}"> ИКЕБАНИ </a></div>
-          <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
-          <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'декорации'}"> ДЕКОРАЦИИ </a></div>
+        <div class="menubtn" fxHide.gt-md>
+          <button mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon>menu</mat-icon>
+          </button>
         </div>
-    
-        <app-searchbox fxFlex fxLayout fxLayoutAlign="end" fxHide.lt-md></app-searchbox>
-    
-        <div class="buttons">
-          <mat-icon [routerLink]="'/shoppingcart'"  [ngStyle]="{'color':'rgb(107 84 168)'}">shopping_cart</mat-icon>
-          <p class="cartNumber">{{numberOfItemsInCart.value}}</p>
-          <mat-divider fxHide.lt-md vertical style="margin-top: 10px;padding: 10px;height: 10px;"></mat-divider>
-          <mat-icon  fxHide.lt-md class="material-icons-outlined" style="padding-left: 10px;" [routerLink]="'/favorites'"  [ngStyle]="{'color':'rgb(107 84 168)'}">favorites</mat-icon>
-        </div>
+
+
+        <img
+          alt="Angular Logo"
+          src="assets/LOGOweb.png" 
+          [routerLink]="'/home'"
+          style="cursor: pointer;" />
+      
+          <div class="spacer"></div>
           
-    </div>
+          <span class="menu-spacer"></span>
+          <div fxFlex fxLayout fxLayoutAlign="end" fxHide.lt-lg routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="links">
+            <div class="flex-container"><a class="nav-link" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" [queryParams]="{c: 'Cveke'}"> ЦВЕЌИЊА <div class ="ac-brdr"></div></a></div>
+            <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+            <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'Buket'}"> БУКЕТИ </a></div>
+            <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+            <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'Ikebana'}"> ИКЕБАНИ </a></div>
+            <div class="flex-container"><img src="../assets/smallfl.PNG" style="width: 15px;height: 15px;margin: 5px;"></div>
+            <div class="flex-container"><a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="'/products'" [queryParams]="{c: 'Dekoracija'}"> ДЕКОРАЦИИ </a></div>
+          </div>
+      
+          <app-searchbox fxFlex fxLayout fxLayoutAlign="end" fxHide.lt-md></app-searchbox>
+      
+          <div class="buttons">
+            <mat-icon [routerLink]="'/shoppingcart'"  [ngStyle]="{'color':'rgb(107 84 168)'}">shopping_cart</mat-icon>
+            <p class="cartNumber">{{numberOfItemsInCart.value}}</p>
+            <mat-divider fxHide.lt-md vertical style="margin-top: 10px;padding: 10px;height: 10px;"></mat-divider>
+            <mat-icon  fxHide.lt-md class="material-icons-outlined" style="padding-left: 10px;" [routerLink]="'/favorites'"  [ngStyle]="{'color':'rgb(107 84 168)'}">favorites</mat-icon>
+            <mat-icon  fxHide.lt-md class="material-icons-outlined" style="padding-left: 10px;" (click)="logout()"  [ngStyle]="{'color':'rgb(107 84 168)'}">logout</mat-icon>
+          </div>
+
+            
+      </div>
+    </ng-container>
 
 
     <div class="content" role="main" [@fadeAnimation]="o.isActivated ? o.activatedRoute : '' ">
@@ -86,7 +90,6 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
 
 
 

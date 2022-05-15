@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/models/product';
 import { ProductService } from 'src/services/product.service';
 import { EventEmitter } from '@angular/core';
+import { ShoppingCartService } from 'src/services/shoppingCart.service';
 
 @Component({
   selector: 'app-shopping-cart-product',
@@ -15,27 +16,30 @@ export class ShoppingCartProductComponent implements OnInit {
   @Output() refreshItems = new EventEmitter();
   @Output() refreshTotalNumber = new EventEmitter();
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit(): void {
   }
 
   increaseQuantity(){
-    this.productService.addProductToShoppingCart(this.product.id!);
+    this.shoppingCartService.addShoppingCartProduct(this.product).subscribe(() => {
     this.refreshItems.emit('')
     this.refreshTotalNumber.emit('')
+    })
   }
 
   deleteProduct(){
-    this.productService.forceRemoveItem(this.product.id!)
-    this.refreshItems.emit('')
-    this.refreshTotalNumber.emit('')
+    this.shoppingCartService.deleteShoppingCartProduct(this.product).subscribe(() => {
+      this.refreshItems.emit('')
+      this.refreshTotalNumber.emit('')
+    })
   }
 
   decreaseQuantity(){
-    this.productService.removeProductFromShoppingCart(this.product.id!);
+    this.shoppingCartService.removeShoppingCartProduct(this.product).subscribe(() => {
     this.refreshItems.emit('')
     this.refreshTotalNumber.emit('')
+    })
   }
 
 }
